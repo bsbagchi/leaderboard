@@ -44,7 +44,7 @@ export default function Home() {
       field: 'Overallprofit',
       headerName: 'Overall Profit',
       type: 'number',
-      width: 110,
+      width: 150,
       editable: true,
     },
     {
