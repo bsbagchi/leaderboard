@@ -21,32 +21,7 @@ export default function Home() {
         default: '#f5f5f5', // Background color
       },
     },
-    components: {
-      MuiDataGrid: {
-        styleOverrides: {
-          root: {
-            backgroundColor: '#ffffff', // DataGrid background color
-            '& .MuiDataGrid-cell': {
-              color: '#000000', // Cell text color
-            },
-            '& .MuiDataGrid-columnHeaders': {
-              backgroundColor: '#e0e0e0', // Header background color
-            },
-            '& .MuiDataGrid-columnHeaderTitle': {
-              color: '#333333', // Header text color
-              fontWeight: 'bold', // Make header text bold
-              fontSize: '1rem', // Make header text larger
-            },
-            '& .MuiDataGrid-row:hover': {
-              backgroundColor: '#f5f5f5', // Hover background color
-            },
-            '& .MuiDataGrid-selectedRowCount': {
-              color: '#1976d2', // Selected row count text color
-            },
-          },
-        },
-      },
-    },
+
   });
 
   const columns: GridColDef<(typeof rows)[number]>[] = [
@@ -263,7 +238,7 @@ export default function Home() {
         </ul>
       </header>
       <hr />
-      <nav className="max-lg:hidden md:px-20  py-3  flex justify-center">
+      <nav className="max-lg:hidden md:px-20  py-3  flex justify-center opacity-80">
         <ul className=" flex justify-items-center space-x-5 font-mono ">
           <li className="border-r-2 lg:pr-4 cursor-pointer hover:scale-105">
             LeaderBoard
@@ -312,7 +287,26 @@ export default function Home() {
                   },
                 }}
                 pageSizeOptions={[10]}
-                // checkboxSelection
+                sx={{
+                  backgroundColor: '#ffffff',
+                  '& .MuiDataGrid-cell': {
+                    color: '#000000',
+                  },
+                  '& .MuiDataGrid-columnHeaders': {
+                    backgroundColor: '#e0e0e0',
+                  },
+                  '& .MuiDataGrid-columnHeaderTitle': {
+                    color: '#333333',
+                    fontWeight: 'bold',
+                    fontSize: '1rem',
+                  },
+                  '& .MuiDataGrid-row:hover': {
+                    backgroundColor: '#f5f5f5',
+                  },
+                  '& .MuiDataGrid-selectedRowCount': {
+                    color: '#1976d2',
+                  },
+                }}
                 disableRowSelectionOnClick
               />
             </Box>
