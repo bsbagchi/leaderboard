@@ -1,113 +1,324 @@
-import Image from "next/image";
-
+'use client';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import Image from 'next/image';
+import logo from './images/logo.png';
+import bell from './images/bell.png';
+import icon from './images/icon.jpeg';
+import profile from './images/monkey.5456259d.jpg';
+import { ThemeProvider, createTheme } from '@mui/material';
 export default function Home() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#1976d2', // Primary color
+      },
+      secondary: {
+        main: '#dc004e', // Secondary color
+      },
+      background: {
+        default: '#f5f5f5', // Background color
+      },
+    },
+    components: {
+      MuiDataGrid: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#ffffff', // DataGrid background color
+            '& .MuiDataGrid-cell': {
+              color: '#000000', // Cell text color
+            },
+            '& .MuiDataGrid-columnHeaders': {
+              backgroundColor: '#e0e0e0', // Header background color
+            },
+            '& .MuiDataGrid-columnHeaderTitle': {
+              color: '#333333', // Header text color
+              fontWeight: 'bold', // Make header text bold
+              fontSize: '1rem', // Make header text larger
+            },
+            '& .MuiDataGrid-row:hover': {
+              backgroundColor: '#f5f5f5', // Hover background color
+            },
+            '& .MuiDataGrid-selectedRowCount': {
+              color: '#1976d2', // Selected row count text color
+            },
+          },
+        },
+      },
+    },
+  });
+
+  const columns: GridColDef<(typeof rows)[number]>[] = [
+    { field: 'Rank', headerName: 'Rank', type: 'number', width: 100 },
+    {
+      field: 'Name',
+      headerName: 'Name',
+      type: 'string',
+      width: 180,
+      editable: true,
+    },
+    {
+      field: 'CalmarRatio',
+      headerName: 'Calmar Ration',
+      type: 'number',
+      width: 150,
+      editable: true,
+    },
+    {
+      field: 'Overallprofit',
+      headerName: 'Overall Profit',
+      type: 'number',
+      width: 110,
+      editable: true,
+    },
+    {
+      field: 'avgdailyprofit',
+      headerName: 'Avg. Daily Profit',
+      type: 'number',
+      width: 150,
+      editable: true,
+    },
+    {
+      field: 'win',
+      headerName: 'Win % (Day)',
+      type: 'number',
+      width: 110,
+      editable: true,
+    },
+    {
+      field: 'price',
+      headerName: 'Price (Rs)',
+      type: 'string',
+      width: 110,
+      editable: true,
+    },
+    {
+      field: 'action',
+      headerName: 'Action',
+      type: 'string',
+      width: 110,
+      editable: true,
+      renderCell: (params) => (
+        <a
+          href={`#${params.value}`}
+          style={{ color: '#1976d2', textDecoration: 'none' }}
+        >
+          {params.value}
+        </a>
+      ),
+    },
+  ];
+
+  const rows = [
+    {
+      Rank: 1,
+      Name: 'Selling with re entr',
+      CalmarRatio: 3.96,
+      Overallprofit: 381845,
+      avgdailyprofit: 319.54,
+      win: 0.65,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 2,
+      Name: 'Strategy_name',
+      CalmarRatio: 3.62,
+      Overallprofit: 268872.5,
+      avgdailyprofit: 216.31,
+      win: 0.64,
+      price: 500,
+      action: 'Buy',
+    },
+    {
+      Rank: 3,
+      Name: 'Based on premium and',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 4,
+      Name: 'Based on premium and',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 5,
+      Name: 'Based on premium and',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 6,
+      Name: 'Based on premium and',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 7,
+      Name: 'Based on premium and',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 8,
+      Name: 'Based on premium and',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 9,
+      Name: 'Wait and trade_save',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 10,
+      Name: 'iron condor',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 11,
+      Name: 'iron condor',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+    {
+      Rank: 12,
+      Name: 'iron condor',
+      CalmarRatio: 3.42,
+      Overallprofit: 255425,
+      avgdailyprofit: 208.54,
+      win: 0.64,
+      price: '-',
+      action: 'view',
+    },
+  ];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <header className=" flex justify-between md:px-20 px-10 pt-8 ">
+        <div className="cursor-pointer">
+          <Image width={150} alt="" src={logo}></Image>
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <ul className="flex py-4 space-x-7">
+          <li className="cursor-pointer">
+            <Image width={30} alt="" src={bell}></Image>
+          </li>
+          <li className="cursor-pointer">
+            <Image width={30} alt="" src={icon}></Image>
+          </li>
+          <li className="cursor-pointer ">
+            <Image width={30} alt="" src={profile}></Image>
+            <ul
+              id="submenu"
+              className="absolute z-[1] text-gray-500  right-10 bg-white"
+            >
+              <li className="hover:bg-gray-300 px-2 py-1 my-1">My Profile</li>
+              <li className="hover:bg-gray-300 px-2 py-1 my-1">My Earnings</li>
+              <li className="hover:bg-gray-300 px-2 py-1 my-1">Funds</li>
+              <li className="hover:bg-gray-300 px-2 py-1 my-1">
+                Change Password
+              </li>
+              <li className="hover:bg-gray-300 text-red-500 px-2 py-1 my-1">Log out</li>
+            </ul>
+          </li>
+        </ul>
+      </header>
+      <hr />
+      <nav className="max-lg:hidden md:px-20  py-3  flex justify-center">
+        <ul className=" flex justify-items-center space-x-5 font-mono ">
+          <li className="border-r-2 lg:pr-4 cursor-pointer hover:scale-105">
+            LeaderBoard
+          </li>
+          <li className="border-r-2 lg:pr-4 cursor-pointer hover:scale-105">
+            Historical TradingScanners
+          </li>
+          <li className="border-r-2 lg:pr-4 cursor-pointer hover:scale-105">
+            Historical Chart
+            
+          </li>
+          <li className="border-r-2 lg:pr-4 cursor-pointer hover:scale-105">
+            Alerts
+          </li>
+          <li className="border-r-2 lg:pr-4 cursor-pointer hover:scale-105">
+            Basic Backtest
+          </li>
+          <li className="border-r-2 lg:pr-4 cursor-pointer hover:scale-105">
+            Advanced Backtest
+          </li>
+          <li className="border-r-2 lg:pr-4 cursor-pointer hover:scale-105">
+            Pricing
+          </li>
+          <li className="cursor-pointer hover:scale-105">My Earnings</li>
+        </ul>
+      </nav>
+      <main className="md:px-20 px-10 ">
+        <h1 className="opacity-70  text-center text-5xl font-bold py-6">
+          LeaderBoards
+        </h1>
+        <div>
+          <h1 className="opacity-70 text-3xl font-bold py-4">Basic Backtest</h1>
+        </div>
+        <ThemeProvider theme={theme}>
+          <div className="lg:w-fit shadow-inner rounded-lg shadow-slate-500 drop-shadow-2xl">
+            <Box sx={{ height: '100%', width: '100%' }}>
+              <DataGrid
+                rows={rows}
+                columns={columns}
+                getRowId={(row) => row.Rank}
+                initialState={{
+                  pagination: {
+                    paginationModel: {
+                      pageSize: 10,
+                    },
+                  },
+                }}
+                pageSizeOptions={[10]}
+                // checkboxSelection
+                disableRowSelectionOnClick
+              />
+            </Box>
+          </div>
+        </ThemeProvider>
+      </main>
+    </>
   );
 }
